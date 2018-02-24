@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import SwiftKeychainWrapper
 
 class ViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
@@ -19,6 +20,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let _ = KeychainWrapper.standard.string(forKey: "uid") {
+            goToFeedVC()
+        }
     }
 
     override func didReceiveMemoryWarning() {
