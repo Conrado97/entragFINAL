@@ -31,12 +31,12 @@ class UserVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
-        // Do any additional setup after loading the view.
+       
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+      
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -98,7 +98,6 @@ class UserVC: UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         setLocation.setValue(userData)
     }
     
-    // MARK: Actions
     @IBAction func completeAccount(_ sender: Any) {
         Auth.auth().createUser(withEmail: emailField, password: passwordField, completion: {
             (user, error) in
